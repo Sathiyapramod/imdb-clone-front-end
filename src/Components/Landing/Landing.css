@@ -1,0 +1,99 @@
+.movies-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5rem;
+    gap: 2rem;
+}
+
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 35rem;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 15rem;
+    height: 20rem;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.card-rating {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #170269;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #132850;
+}
+
+button:active {
+    background-color: #170269;
+}
+
+.card-actors {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.actor {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    width: auto;
+    cursor: pointer;
+    transition: all 0.35s ease-in;
+}
+.actor:hover{
+    background-color: #170269 ;
+    color: white;
+}
