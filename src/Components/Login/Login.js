@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setUsername, setPassword, setToken } from "../../store/authslice";
+import { useNavigate } from "react-router-dom";
+import { setUsername , setToken } from "../../store/authslice";
 import "../Login/Login.css";
 import { API } from "../General";
 
 function Login() {
-  const [username, setusername] = useState(null);
-  const [password, setpassword] = useState(null);
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     let credentials = {
@@ -27,9 +29,9 @@ function Login() {
         console.log(result);
         dispatch(setUsername(result.username));
         dispatch(setToken(result.token));
+        navigate("/home");
       });
   };
-
   return (
     <div className="login-form">
       <div className="username">

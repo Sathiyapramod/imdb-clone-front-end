@@ -8,7 +8,7 @@ import Login from "./Components/Login/Login";
 function App() {
   return (
     <div className="App">
-      {window.location.pathname !== "/" && <Navbar />}
+      {window.location.pathname != "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Landing />} />

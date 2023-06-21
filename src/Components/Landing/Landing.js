@@ -2,18 +2,27 @@ import React, { useState, useEffect } from "react";
 import "./Landing.css";
 import { API } from "../General";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Landing() {
   const [movies, setmovieslist] = useState([]);
   const navigate = useNavigate();
+
+  const token = useSelector((state) => state.auth.token);
+  // console.log(token);
   const getData = () => {
-    fetch(`${API}/movies/`)
+    fetch(`${API}/movies`, {
+      method: "GET",
+      headers: {
+        "x-auth-token": token,
+      },
+    })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setmovieslist(result);
       });
-  };
+  }
 
   const viewMovie = (movie) => {
     console.log(movie);
@@ -24,7 +33,7 @@ function Landing() {
   return (
     <div>
       <div className="movies-lists">
-        {movies.map((movie, index) => {
+        {movies.length > 0 && movies.map((movie, index) => {
           return (
             <div className="card" key={index}>
               <img src={movie.poster} alt={movie.name} className="card-image" />
@@ -49,9 +58,13 @@ function Landing() {
                   >
                     View
                   </button>
-                  <button onClick={() => {
-                    navigate(`/movie/edit/${movie._id}`)
-                  }}>Edit</button>
+                  <button
+                    onClick={() => {
+                      navigate(`/movie/edit/${movie._id}`);
+                    }}
+                  >
+                    Edit
+                  </button>
                 </div>
               </div>
             </div>

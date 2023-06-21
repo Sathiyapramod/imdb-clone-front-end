@@ -93,7 +93,24 @@ button:active {
     cursor: pointer;
     transition: all 0.35s ease-in;
 }
-.actor:hover{
-    background-color: #170269 ;
+
+.actor:hover {
+    background-color: #170269;
     color: white;
+}
+
+.edit-movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-name,
+.year,
+.summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
