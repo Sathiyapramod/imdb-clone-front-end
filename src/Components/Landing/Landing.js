@@ -20,13 +20,13 @@ function Landing() {
       .then((response) => response.json())
       .then((result) => {
         // console.log(result);
-        let final = result.map((movie)=>{
-          return movie.actors
-        })
+        let final = result.map((movie) => {
+          return movie.actors;
+        });
         console.log(final);
         setmovieslist(result);
       });
-  }
+  };
 
   const viewMovie = (movie) => {
     console.log(movie);
@@ -37,43 +37,60 @@ function Landing() {
   return (
     <div>
       <div className="movies-lists">
-        {movies.length > 0 && movies.map((movie, index) => {
-          return (
-            <div className="card" key={index}>
-              <img src={movie.poster} alt={movie.name} className="card-image" />
-              <div className="card-content">
-                <h2 className="card-title">{movie.name}</h2>
-                <div className="card-rating">Year : {movie.year}</div>
-                <p className="card-description">{movie.summary}</p>
-                <div className="card-actors">
-                  {movie.actors.map((actor, index) => {
-                    return (
-                      <div className="actor" key={index}>
-                        {actor.name}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="card-options">
-                  <button
-                    onClick={() => {
-                      viewMovie(movie);
-                    }}
-                  >
-                    View
-                  </button>
-                  <button
-                    onClick={() => {
-                      navigate(`/movie/edit/${movie._id}`);
-                    }}
-                  >
-                    Edit
-                  </button>
+        {movies.length > 0 &&
+          movies.map((movie, index) => {
+            return (
+              <div className="card" key={index}>
+                <img
+                  src={movie.poster}
+                  alt={movie.name}
+                  className="card-image"
+                />
+                <div className="card-content">
+                  <h2 className="card-title">{movie.name}</h2>
+                  <div className="card-rating">Year : {movie.year}</div>
+                  <p className="card-description">{movie.summary}</p>
+                  <div className="card-actors">
+                    {movie.actors.map((actor, index) => {
+                      return (
+                        <div className="actor" key={index}>
+                          {actor.name}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="card-director">
+                    Director : {movie.director.name}
+                  </div>{" "}
+                  <div className="card-producer">
+                    Producers : 
+                    {movie.producer.map((element,index)=>{
+                      return (
+                        <div className="actor" key={index}>{element.name}</div>
+                      )
+                    })}
+                  </div>
+                  <br />
+                  <div className="card-options">
+                    <button
+                      onClick={() => {
+                        viewMovie(movie);
+                      }}
+                    >
+                      View
+                    </button>
+                    <button
+                      onClick={() => {
+                        navigate(`/movie/edit/${movie._id}`);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );

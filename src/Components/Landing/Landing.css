@@ -75,7 +75,8 @@ button:active {
     background-color: #170269;
 }
 
-.card-actors {
+.card-actors,
+.card-producer {
     display: flex;
     padding: 10px;
     justify-content: flex-start;
@@ -114,4 +115,22 @@ button:active {
     justify-content: center;
     align-items: center;
     gap: 5rem;
+}
+
+.add-movie-name {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+.add-movie-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;;
+}
+
+.errors{
+    color:red;
 }
