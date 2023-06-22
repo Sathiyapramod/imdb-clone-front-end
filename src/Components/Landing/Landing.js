@@ -20,6 +20,10 @@ function Landing() {
       .then((response) => response.json())
       .then((result) => {
         // console.log(result);
+        let final = result.map((movie)=>{
+          return movie.actors
+        })
+        console.log(final);
         setmovieslist(result);
       });
   }

@@ -108,7 +108,8 @@ button:active {
 
 .movie-name,
 .year,
-.summary {
+.summary,
+.director {
     display: flex;
     justify-content: center;
     align-items: center;
